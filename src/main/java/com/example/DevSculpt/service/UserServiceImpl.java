@@ -32,4 +32,14 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO getUserById(Long userId) {
         return null;
     }
+
+    @Override
+    public UserResponseDTO findUserByIdAndNickName(String userid, String nickName) {
+        ModelMapper mapper = new ModelMapper();
+        UserEntity userEntity = dao.findByUseridOrNickName(userid, nickName);
+        if (userEntity != null) {
+            return mapper.map(userEntity, UserResponseDTO.class);
+        }
+        return null;
+    }
 }
