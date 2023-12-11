@@ -19,4 +19,9 @@ public class UserDAOImpl implements UserDAO {
     public UserEntity findById(Long userId) {
         return repository.findById(userId).orElse(null);
     }
+
+    @Override
+    public UserEntity findByUseridOrNickName(String userid, String nickName) {
+        return repository.findByUseridOrNickName(userid, nickName);
+    }
 }
